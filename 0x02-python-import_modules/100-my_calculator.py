@@ -9,14 +9,13 @@ if __name__ == "__main__":
     a = int(sys.argv[1])
     b = int(sys.argv[3])
     operand = sys.argv[2]
-    operators = {"+" : add(a, b),
-                 "-" : sub(a, b),
-                 "*" : mul(a, b),
-                 "/" : div(a, b)}
+    operators = {"+": add(a, b),
+                 "-": sub(a, b),
+                 "*": mul(a, b),
+                 "/": div(a, b)}
     for op, fxn in operators.items():
         if (op == operand):
             print("{} {} {} = {}".format(a, op, b, fxn))
             sys.exit(0)
     print("Unknown operator. Available operators: +, -, * and /")
     sys.exit(1)
-
