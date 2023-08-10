@@ -4,7 +4,7 @@ if __name__ == "__main__":
     argv_len = len(sys.argv)
     argv_len -= 1
     print("{} {}".format((argv_len), "argument" if (argv_len == 1)
-           else "arguments"), end="")
+                         else "arguments"), end="")
     print("{}".format("." if (argv_len == 0) else ":"))
     if argv_len != 0:
         for i, elem in enumerate(sys.argv):
