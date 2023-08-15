@@ -10,5 +10,5 @@ def print_matrix_integer(matrix=[[]]):
 
     for i, elements in enumerate(matrix):
         for j, element in enumerate(elements):
-            print("{}".format(element), end=" ")
+            print("{:d}".format(element), end=" ")
         print()
