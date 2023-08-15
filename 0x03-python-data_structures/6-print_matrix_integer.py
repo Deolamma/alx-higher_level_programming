@@ -8,7 +8,9 @@ def print_matrix_integer(matrix=[[]]):
             Returns nothing.
     """
 
-    for i, elements in enumerate(matrix):
-        for j, element in enumerate(elements):
-            print("{:d}".format(element), end=" ")
+    for elements in matrix:
+        for i, element in enumerate(elements):
+            elem_len = len(elements)
+            print("{:d}".format(element),
+                  end=" " if (i < (elem_len - 1)) else "")
         print()
