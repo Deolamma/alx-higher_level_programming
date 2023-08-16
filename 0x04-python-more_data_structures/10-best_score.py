@@ -10,7 +10,7 @@ def best_score(a_dictionary):
             Returns the key with the highest value
     """
 
-    if a_dictionary is None:
+    if a_dictionary is None or not a_dictionary:
         return None
 
     best_score = 0
