@@ -9,9 +9,6 @@ def delete_at(my_list=[], idx=0):
             Returns a new list with deleted index
         """
 
-    if not my_list:
-        return None
-
     new_list = my_list
     list_len = len(my_list)
 
