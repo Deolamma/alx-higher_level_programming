@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def safe_print_list(my_list=[], x=0):
     """Safe Printing A Listing
-        
+
         Args:
             my_list: List to be printed out
             x: number of elements to print out
