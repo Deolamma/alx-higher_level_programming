@@ -10,9 +10,7 @@ def safe_print_list_integers(my_list=[], x=0):
             returns the number of valid integer printed
     """
     count, list_len = 0, 0
-    
-    for value in my_list:
-        list_len += 1
+
     for i in range(x):
         try:
             int(my_list[i])
