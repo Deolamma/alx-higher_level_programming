@@ -10,10 +10,8 @@ def safe_print_division(a, b):
             Returns the result of the division OR None if it fails
     """
     try:
-        int(a)
-        int(b)
         result = a / b
-    except (FloatingPointError, ZeroDivisionError, TypeError, ValueError):
+    except (FloatingPointError, ZeroDivisionError, TypeError):
         result = None
     finally:
         print("Inside result: {}".format(result))
