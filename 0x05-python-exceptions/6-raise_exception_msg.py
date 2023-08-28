@@ -8,4 +8,4 @@ def raise_exception_msg(message=""):
         Returns:
             NOTHING
     """
-    raise NameError(message);
+    raise NameError(message)
