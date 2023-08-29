@@ -21,15 +21,7 @@ class Square:
             Args:
                 size: size of square passed by object of class
                       if None, size defaults to 0
-            Raises:
-                ValueError: This is raised if size is less than zero
-                TypeError: Raises error if size is not an integer
         """
-
-        if type(size) is not int:
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
         self.__size = size
 
     @property
@@ -39,6 +31,10 @@ class Square:
             Setter Args:
                 value: Size of square to be set
 
+            Raises:
+                ValueError: Raised when the value is less than zero
+                TyperError: Raised when the value is not an integer
+
             Returns:
                 Returns the size of a square
         """
@@ -47,15 +43,6 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """Sets the size of a square
-
-            Args:
-                value: Val to be used to update the size of square
-
-            Returns:
-                Returns Nothing
-        """
-
         if type(value) is not int:
             raise TypeError("size must be integer")
         if value < 0:
