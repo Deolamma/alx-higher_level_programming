@@ -22,7 +22,7 @@ class Square:
                 size: size of square passed by object of class
                       if None, size defaults to 0
         """
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
