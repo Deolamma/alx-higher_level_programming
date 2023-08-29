@@ -70,13 +70,14 @@ class Square:
 
             Args:
                 NIL
-            
+
             Returns:
                 Returns Nothing
         """
 
+        if self.size == 0:
+            print()
         for i in range(self.size):
             for i in range(self.size):
                 print("#", end="")
             print()
-
