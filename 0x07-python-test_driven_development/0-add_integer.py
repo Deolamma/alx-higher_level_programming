@@ -2,6 +2,7 @@
 """
 This is a module that sums integers and floats.
 It returns int irrespective of the type (int or float)
+For Example: add_integer(2.0, 2.0) == 4
 """
 
 
