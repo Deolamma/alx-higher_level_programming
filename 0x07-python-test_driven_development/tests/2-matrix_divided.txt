@@ -1,0 +1,133 @@
+===============================
+How to use ``matrix_divided()``
+===============================
+
+This library is a simple one as it contains only one function called
+``matrix_divided()``
+
+NUMBERS
+========
+``matrix_divided()`` should return the division of a list in list
+by a divisor
+..
+..
+        >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+        >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+        [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+	>>> matrix_divided(
+	...	[[1, 2.0, 3], [4, 5, 6], [7, 8, 9]], 
+	...	3.0
+	...	)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, 5, 6], [7, 8, 9]],
+        ...     1e308
+        ...     )
+        [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+	>>> matrix_divided(
+        ...     [[1e308, 2.0, 1e-308], [4, 5, 6], [7, 8, 9]],
+        ...     3
+        ...     )
+        [[3.333333333333333e+307, 0.67, 0.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, -5, 6], [7, 8, -9]],
+        ...     -3.0
+        ...     )
+        [[-0.33, -0.67, -1.0], [-1.33, 1.67, -2.0], [-2.33, -2.67, 3.0]]
+
+INVALID OPERATIONS
+====================
+``matrix_divided()`` should only work with int and floats and the divisor cannot bezero
+..
+..
+	>>> matrix_divided([[1, 2, 3], {"ID": 4, "name": "Emmanuel"}], 3)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([{"ID": 4, "name": "Emmanuel"}, [1, 2, 3]], 3)
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+	
+	>>> matrix_divided([{"ID": 4, "name": "Emmanuel"}, [1, 2, 3]], 3)
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, 5, 6], [7, 8, 9]],
+        ...     0
+        ...     )
+        Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, 5, 6], [7, 8, 9]],
+        ...     "Emmanuel"
+        ...     )
+        Traceback (most recent call last):
+        ...
+        TypeError: div must be a number
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, 5, 6], [7, 8, 9]],
+        ...     {"name": "Emmanuel", "ID": 3}
+        ...     )
+        Traceback (most recent call last):
+        ...
+        TypeError: div must be a number
+
+	>>> matrix_divided(
+        ...     [[1, [2.0, 1, "Emmanuel"], 3], [4, 5, 6], [7, 8, 9]],
+        ...     3
+        ...     )
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, 6], [7, 8, 9]],
+        ...     3
+        ...     )
+        Traceback (most recent call last):
+        ...
+        TypeError: Each row of the matrix must have the same size
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, 5, 6], [7, 8, 9]],
+        ...     1e-308
+        ...     )
+        Traceback (most recent call last):
+        ...
+        ZeroDivisionError: Number too small to be a divisor
+
+	>>> matrix_divided(
+        ...     [[1, 2.0, 3], [4, 5, 6], [7, 8, 9]],
+        ...     1e308
+        ...     )
+       	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+	>>> matrix_divided([[], [], []],3)
+        Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[]], 3)
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+	
+	>>> matrix_divided(
+        ...     [[1, "Emmanuel", 3], [4, 5, 6], [7, 8, 9]],
+        ...     3
+        ...     )
+        Traceback (most recent call last):
+        ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
