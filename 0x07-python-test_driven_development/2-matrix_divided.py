@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 This module divides throug a matrix by a divisor
 It returns a newlist containing the divided elements to 2dp
@@ -47,6 +48,7 @@ def matrix_divided(matrix, div):
                                  "matrix must be a matrix (list of lists) "
                                  "of integers/floats"
                                 )
+    # Complex list comprehension creating a new matrix(list of lists)
     new_list = [
                     [
                         (round(element / div, 2) if div != 1e308 else 0.0)
