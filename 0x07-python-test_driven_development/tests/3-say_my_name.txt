@@ -1,0 +1,47 @@
+============================
+How to use 3-say_my_name.py
+============================
+
+This library is quite simple since it has only one function ```say_my_name()```
+It tests that the two expected inputs from a user are strings
+
+VALID INPUTS
+==============
+..
+..
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
+
+        >>> say_my_name("John") #doctest: +NORMALIZE_WHITESPACE
+        My name is John 
+
+	>>> say_my_name("John", None) #doctest: +NORMALIZE_WHITESPACE
+        My name is John
+
+	>>> say_my_name("", "Smith") #doctest: +NORMALIZE_WHITESPACE
+	My name is  Smith
+
+INVALID INPUTS
+================
+..
+..
+	>>> say_my_name(2, "Smith")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("John", ["Smith", 2, "Emmanuel"])
+        Traceback (most recent call last):
+        ...
+        TypeError: last_name must be a string
+
+	>>> say_my_name("J ohn", "Emmanuel")
+        Traceback (most recent call last):
+        ...
+        TypeError: first_name cannot contain space
+
+	>>> say_my_name("John", "Em manuel")
+        Traceback (most recent call last):
+        ...
+        TypeError: last_name cannot contain space
