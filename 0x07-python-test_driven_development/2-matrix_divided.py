@@ -24,7 +24,7 @@ def matrix_divided(matrix, div):
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     elif div == 1e-308:
-        raise ZeroDivisionError("Number too small to be a divisor")
+        raise ZeroDivisionError("division by zero")
     standard_len = len(matrix[0])
     for row in matrix:
         if row == []:

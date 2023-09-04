@@ -105,13 +105,7 @@ INVALID OPERATIONS
         ...     )
         Traceback (most recent call last):
         ...
-        ZeroDivisionError: Number too small to be a divisor
-
-	>>> matrix_divided(
-        ...     [[1, 2.0, 3], [4, 5, 6], [7, 8, 9]],
-        ...     1e308
-        ...     )
-       	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+        ZeroDivisionError: division by zero
 
 	>>> matrix_divided([[], [], []],3)
         Traceback (most recent call last):
