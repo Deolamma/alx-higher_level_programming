@@ -1,0 +1,64 @@
+===================================
+How to use the print_square method
+===================================
+This method is a simple one since it contains only one function called
+```print_square()```
+It prints a square if given a valid int or float > 0 as parameter
+
+VALID INPUTS
+=============
+..
+..
+	>>> print_square = __import__('4-print_square').print_square
+	>>> print_square(4)
+	####
+	####
+	####
+	####
+
+        >>> print_square(1)
+        #
+
+	>>> print_square(4.0)
+        ####
+        ####
+        ####
+        ####
+
+	>>> print_square(0)
+
+
+	>>> print_square(0.0)
+
+
+	>>> print_square(1e-308)
+
+
+INVALID INPUTS
+===============
+..
+..
+        >>> print_square(-4)
+        Traceback (most recent call last):
+	...
+	ValueError: size must be >= 0
+
+	>>> print_square(-4.0)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+	>>> print_square([-4.0, 4, "Emmanuel"])
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+	>>> print_square(True)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+	>>> print_square(None)
+	Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
