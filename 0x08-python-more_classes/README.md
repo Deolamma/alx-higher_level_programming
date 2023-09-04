@@ -4,6 +4,7 @@
 - Understanding the concepts of Static, class and instance methods
 - Solidying my understanding of what attributes and properties are
 - Data hiding, Encapsulation and Abstraction
-- How to write unittests
+~How to write unittests~
+
 
 
