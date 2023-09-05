@@ -30,11 +30,11 @@ VALID INPUTS
         ...             "I am a boy.. Do you love women?.  Ofcourse I do:?."
 	...		" cool!."
         ... )
-        I am a boy.
+        I am a boy..
         <BLANKLINE>
-        Do you love women?
+        Do you love women?.
         <BLANKLINE>
-        Ofcourse I do:
+        Ofcourse I do:?.
         <BLANKLINE>
         cool!.
 
@@ -44,11 +44,11 @@ VALID INPUTS
         ...             "I am a boy..Do you love women?.  Ofcourse I do:?."
         ...             " cool!."
         ... )
-        I am a boy.
+        I am a boy..
         <BLANKLINE>
-        Do you love women?
+        Do you love women?.
         <BLANKLINE>
-        Ofcourse I do:
+        Ofcourse I do:?.
         <BLANKLINE>
         cool!.
 
