@@ -1,0 +1,72 @@
+==================================
+This module replaces all ".", "?" and ":" with a newline in a given text
+
+VALID INPUTS
+=============
+..
+..
+        >>> text_indentation = __import__('5-text_indentation').text_indentation
+        >>> text_indentation("I am a boy. Do you love women? Ofcourse I do: cool!")
+        I am a boy.
+        <BLANKLINE>
+        Do you love women?
+        <BLANKLINE>
+        Ofcourse I do:
+        <BLANKLINE>
+	cool!
+	
+	>>> text_indentation(
+	...		"I am a boy. Do you love women?  Ofcourse I do: cool!."
+	... )
+	I am a boy.
+        <BLANKLINE>
+        Do you love women?
+        <BLANKLINE>
+        Ofcourse I do:
+        <BLANKLINE>
+        cool!.
+
+	>>> text_indentation(
+        ...             "I am a boy.. Do you love women?.  Ofcourse I do:?."
+	...		" cool!."
+        ... )
+        I am a boy.
+        <BLANKLINE>
+        Do you love women?
+        <BLANKLINE>
+        Ofcourse I do:
+        <BLANKLINE>
+        cool!.
+
+	>>> text_indentation("   ") 	
+
+	>>> text_indentation(
+        ...             "I am a boy..Do you love women?.  Ofcourse I do:?."
+        ...             " cool!."
+        ... )
+        I am a boy.
+        <BLANKLINE>
+        Do you love women?
+        <BLANKLINE>
+        Ofcourse I do:
+        <BLANKLINE>
+        cool!.
+
+INVALID INPUTS
+===============
+..
+..
+	>>> text_indentation([12, 13, 14])
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+	>>> text_indentation({"id": 1, "name": "Emmanuel"})
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+
+	>>> text_indentation(None)
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
