@@ -40,12 +40,12 @@ class Rectangle:
     def __repr__(self):
         """
         Prints A String Representation Of A Rectangle Object
-        
+
         For Example:
             my_rectangle = Rectangle(2, 4)
             eval(repr(my_rectangle)) Should return:
             An object of the Rectangle class
-        
+
         Return:
             Returns a string rep. of a rectangle class object
         """
