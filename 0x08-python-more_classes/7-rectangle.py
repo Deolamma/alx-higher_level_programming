@@ -79,7 +79,7 @@ class Rectangle:
         for _ in range(self.__height):
             # str Rectabgle.print_symbol returns string representatiion
             # of any type
-            created_rec += (str(Rectangle.print_symbol) * self.__width) + "\n"
+            created_rec += (str(self.print_symbol) * self.__width) + "\n"
         return created_rec[:-1]
 
     @property
