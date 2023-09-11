@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 MyInt inherits from the int class
 MyInt acts as a rebel and overrides the __eq__ method
