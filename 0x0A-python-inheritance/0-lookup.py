@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Printing a list object containing the list of available
 attributes and methods of an object
