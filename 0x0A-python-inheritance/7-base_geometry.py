@@ -36,6 +36,10 @@ class BaseGeometry:
             NIL
         """
 
+        if type(name) is not str:
+            raise TypeError("Position 1 argument should be a string")
+        if len(name) == 0:
+            raise ValueError("string should not be empty")
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
