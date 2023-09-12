@@ -21,4 +21,5 @@ def read_file(filename=""):
     if type(filename) is not str:
         raise TypeError("Filename must be a String")
     with open(filename, "r", encoding="utf-8") as open_f:
-        print(open_f.read().rstrip())
+        read_f = open_f.read()
+        print("{}".format(read_f), end="")
