@@ -32,7 +32,7 @@ class Rectangle(BaseGeometry):
         """
         Returns a string representation of an object
         """
-        return f"{self.__class__.__name__} {self.__width}/{self.__height}"
+        return f"[{__class__.__name__}] {self.__width}/{self.__height}"
 
     def area(self):
         """
