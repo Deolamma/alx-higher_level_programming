@@ -16,4 +16,3 @@ def read_file(filename=""):
         raise TypeError("Filename must be a String")
     with open(filename, "r", encoding="utf-8") as open_f:
         print(open_f.read().rstrip())
-
