@@ -13,6 +13,7 @@ Valid Input
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("width", 12)
 	>>> bg.integer_validator("my_int", 89)
+	>>> bg.integer_validator(" ", 89)
 
 =============
 Invalid Input
@@ -68,3 +69,13 @@ Invalid Input
         Traceback (most recent call last):
         ...
         TypeError: my_int must be an integer
+
+	>>> bg.integer_validator(None, 5)
+        Traceback (most recent call last):
+        ...
+        TypeError: Position 1 argument should be a string
+
+	>>> bg.integer_validator("", True)
+        Traceback (most recent call last):
+        ...
+        ValueError: string should not be empty
