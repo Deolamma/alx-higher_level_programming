@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 This module returns the dictionary rep. of a class
 """
