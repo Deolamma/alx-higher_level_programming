@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 A class that inherits from Rectangle class
 Rectangle class inherits from BaseGeometry
