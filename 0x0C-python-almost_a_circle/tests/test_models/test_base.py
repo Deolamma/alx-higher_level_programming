@@ -44,34 +44,32 @@ class TestBaseClass(unittest.TestCase):
         """
 
         print("setup")
+        self.obj1 = Base()
+        self.obj2 = Base()
+        self.obj3 = Base(8)
+        self.obj4 = Base()
+        self.obj5 = Base([1, 2, "emmanuel", {"name": "e", "id": 10}])
+        self.obj6 = Base(-7)
+        self.obj7 = Base()
 
     def tearDown(self):
         """tears down after tests
         """
 
         print("teardown")
-
+ 
     def test_init_id_none(self):
         """tests for if id is none
         """
 
-        obj1 = Base()
-        self.assertEqual(obj1.id, 1)
-        obj2 = Base()
-        obj3 = Base()
-        obj4 = Base()
-        self.assertEqual(obj4.id, 4)
+        self.assertEqual(self.obj1.id, 1)
+        self.assertEqual(self.obj4.id, 3)
+        self.assertEqual(self.obj7.id, 4)
 
     def test_init_id_value(self):
         """tests for if id has a value
         """
 
-        obj1 = Base(8)
-        self.assertEqual(obj1.id, 8)
-        obj2 = Base(-7)
-        self.assertEqual(obj2.id, -7)
-        obj3 = Base([1, 2, "emmanuel", {"name": "e", "id": 10}])
-        self.assertEqual(obj3.id, [1, 2, "emmanuel", {"name": "e", "id": 10}])
-
-    if __name__ == '__main__':
-        unittest.main()
+        self.assertEqual(self.obj3.id, 8)
+        self.assertEqual(self.obj6.id, -7)
+        self.assertEqual(self.obj5.id, [1, 2, "emmanuel", {"name": "e", "id": 10}])
