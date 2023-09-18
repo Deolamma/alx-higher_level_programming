@@ -3,6 +3,8 @@
 Testcases for Rectangle class
 """
 import unittest
+from unittest.mock import patch
+from io import StringIO
 from models.base import Base
 from models.rectangle import Rectangle
 from tests.test_models.test_base import TestBaseClass
@@ -188,6 +190,62 @@ class TestRectangleClass(TestBaseClass):
         with self.assertRaises(TypeError):
             self.obj = Rectangle(4, 15, 40, 4.0)
 
-    def test_area_of_rectangle(self):
+    def test_area_of_rec(self):
+        """Test area of rectangle"""
         self.obj = Rectangle(2, 3)
         self.assertEqual(self.obj.area(), 6)
+
+    def test_area_of_rec2(self):
+        """Test area of rectangle after changing width"""
+
+        self.obj = Rectangle(10, 5)
+        self.obj.width = 2
+        self.assertEqual(self.obj.area(), 10)
+
+    def test_area_of_rec3(self):
+        """Test area of rectangle after changing height"""
+
+        self.obj = Rectangle(10, 10)
+        self.obj.height = 5
+        self.assertEqual(self.obj.area(), 50)
+
+    def test_diplay(self):
+        """Testing that display prints a proper rectangle"""
+
+        self.obj = Rectangle(2, 3)
+        result = "##\n##\n##\n"
+        with patch("sys.stdout", StringIO()) as disp_out:
+            self.obj.display()
+            self.assertEqual(disp_out.getvalue(), result)
+
+    def test_display2(self):
+        """Recreate Rec after changing height"""
+
+        self.obj = Rectangle(2, 3)
+        result = "##\n##\n##\n"
+        with patch("sys.stdout", StringIO()) as disp_out:
+            self.obj.display()
+            self.assertEqual(disp_out.getvalue(), result)
+
+        self.obj.height = 5
+        result = "##\n##\n##\n##\n##\n"
+        with patch("sys.stdout", StringIO()) as disp_out:
+            self.obj.display()
+            self.assertEqual(disp_out.getvalue(), result)
+
+    def test_display3(self):
+        """Recreate Rec after changing width"""
+
+        self.obj = Rectangle(2, 3)
+        result = "##\n##\n##\n"
+
+        with patch("sys.stdout", StringIO()) as disp_out:
+            self.obj.display()
+            self.assertEqual(disp_out.getvalue(), result)
+
+        self.obj.height = 4
+        result = "##\n##\n##\n##\n"
+
+        with patch("sys.stdout", StringIO()) as disp_out:
+            self.obj.display()
+            self.assertEqual(disp_out.getvalue(), result)
