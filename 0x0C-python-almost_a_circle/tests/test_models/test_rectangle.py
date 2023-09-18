@@ -340,3 +340,27 @@ class TestRectangleClass(TestBaseClass):
         with patch("sys.stdout", StringIO()) as str_out:
             print(self.obj)
             self.assertEqual(str_out.getvalue(), result)
+
+    def test_update(self):
+        """
+        Test updated attributes
+        """
+
+        self.obj = Rectangle(10, 10, 10, 10)
+        result = "[Rectangle] (1) 10/10 - 10/10\n"
+
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
+
+        self.obj.update(89)
+        result = "[Rectangle] (89) 10/10 - 10/10\n"
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
+
+        self.obj.update(89, 2, 3, 4, 5)
+        result = "[Rectangle] (89) 4/5 - 2/3\n"
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
