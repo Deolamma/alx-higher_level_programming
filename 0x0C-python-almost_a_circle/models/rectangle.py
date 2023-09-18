@@ -36,6 +36,16 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        """returns a string rep. of the instance of the class
+
+        Returns:
+            returns a string rep. of the instance of the class
+        """
+
+        return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - "
+                f"{self.__width}/{self.__height}")
+
     @property
     def width(self):
         """Encapsulating the Width Property
