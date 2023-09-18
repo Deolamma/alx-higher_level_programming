@@ -178,3 +178,31 @@ class Rectangle(Base):
                     ("{}".format(" " * self.__x if self.__x != 0 else "")) +
                     ("#" * self.__width) + "\n")
         print(create_rec[:-1])
+
+    def update(self, *args):
+        """Updating attributes of an instance
+        This class updates each attribute of an instance appropriately
+
+        Args:
+            args: this is a an argument that depicts that an unknown amount
+                  of data will be passed as argument
+
+        Returns:
+            NIL
+        """
+
+        args_len = len(args)
+        if args_len == 1:
+            self.id = args[0]
+        elif args_len > 1 and args_len <= 5:
+            for i in range(args_len):
+                if i == 0:
+                    self.id = args[i]
+                elif i == 1:
+                    self.width = args[i]
+                elif i == 2:
+                    self.height = args[i]
+                elif i == 3:
+                    self.x = args[i]
+                elif i == 4:
+                    self.y = args[i]
