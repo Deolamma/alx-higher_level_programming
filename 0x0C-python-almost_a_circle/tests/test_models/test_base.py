@@ -79,4 +79,4 @@ class TestBaseClass(unittest.TestCase):
         """
 
         with self.assertRaises(TypeError):
-            self.obj(10, 30)
+            self.obj = Base(10, 30)
