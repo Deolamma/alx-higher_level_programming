@@ -147,3 +147,14 @@ class Rectangle(Base):
             The Area of a Rectangle object
         """
         return (self.__width * self.__height)
+
+    def display(self):
+        """Creating a Rectangle shape
+        This is a public instance method that creates a rectangle shape
+        This method creates the shape using the height and width specified
+        """
+
+        create_rec = ""
+        for _ in range(self.__height):
+            create_rec += (("#" * self.__width) + "\n")
+        print(create_rec[:-1])
