@@ -218,17 +218,25 @@ class TestRectangleClass(TestBaseClass):
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
 
+        # Change x and y axis data
+        self.obj.x = 2
+        self.obj.y = 1
+        result = result = "\n  ##\n  ##\n  ##\n"
+        with patch("sys.stdout", StringIO()) as disp_out:
+            self.obj.display()
+            self.assertEqual(disp_out.getvalue(), result)
+
     def test_display2(self):
         """Recreate Rec after changing height"""
 
-        self.obj = Rectangle(2, 3)
-        result = "##\n##\n##\n"
+        self.obj = Rectangle(2, 3, 1, 0)
+        result = " ##\n ##\n ##\n"
         with patch("sys.stdout", StringIO()) as disp_out:
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
 
         self.obj.height = 5
-        result = "##\n##\n##\n##\n##\n"
+        result = " ##\n ##\n ##\n ##\n ##\n"
         with patch("sys.stdout", StringIO()) as disp_out:
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
@@ -236,15 +244,15 @@ class TestRectangleClass(TestBaseClass):
     def test_display3(self):
         """Recreate Rec after changing width"""
 
-        self.obj = Rectangle(2, 3)
-        result = "##\n##\n##\n"
+        self.obj = Rectangle(2, 3, 2, 2)
+        result = "\n\n  ##\n  ##\n  ##\n"
 
         with patch("sys.stdout", StringIO()) as disp_out:
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
 
-        self.obj.height = 4
-        result = "##\n##\n##\n##\n"
+        self.obj.width = 4
+        result = "\n\n  ####\n  ####\n  ####\n"
 
         with patch("sys.stdout", StringIO()) as disp_out:
             self.obj.display()
