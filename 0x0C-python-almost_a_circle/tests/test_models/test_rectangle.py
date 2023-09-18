@@ -249,3 +249,86 @@ class TestRectangleClass(TestBaseClass):
         with patch("sys.stdout", StringIO()) as disp_out:
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
+
+    def test_str(self):
+        """Testing __str__method of Rectangle"""
+
+        self.obj = Rectangle(2, 5, 6, 7, 12)
+        result = "[Rectangle] (12) 6/7 - 2/5\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_str1(self):
+        """
+        Testing that proper id is printed out if nothing is passed for id, x, y
+        """
+
+        self.obj = Rectangle(2, 5)
+        result = "[Rectangle] (1) 0/0 - 2/5\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_str2(self):
+        """
+        Testing that proper str rep. is printed out when width is changed
+        """
+
+        self.obj = Rectangle(2, 5, 6, 7, 12)
+        result = "[Rectangle] (12) 6/7 - 2/5\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
+
+        # Changing the value for width
+        self.obj.width = 4
+        result = "[Rectangle] (12) 6/7 - 4/5\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_str3(self):
+        """
+        Testing that proper str rep. is printed out when height is changed
+        """
+
+        self.obj = Rectangle(2, 5, 6, 7)
+        result = "[Rectangle] (1) 6/7 - 2/5\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
+
+        # Changing the value for height
+        self.obj.height = 10
+        result = result = "[Rectangle] (1) 6/7 - 2/10\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_str4(self):
+        """
+        Testing that proper str. rep. is printed out when x and y is changed
+        """
+
+        self.obj = Rectangle(2, 5, 6, 7)
+        result = "[Rectangle] (1) 6/7 - 2/5\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
+
+        # Changing the values of x and y
+        self.obj.x = 4
+        self.obj.y = 14
+        result = "[Rectangle] (1) 4/14 - 2/5\n"
+
+        with patch("sys.stdout", StringIO()) as str_out:
+            print(self.obj)
+            self.assertEqual(str_out.getvalue(), result)
