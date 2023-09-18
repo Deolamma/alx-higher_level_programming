@@ -179,30 +179,38 @@ class Rectangle(Base):
                     ("#" * self.__width) + "\n")
         print(create_rec[:-1])
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updating attributes of an instance
         This class updates each attribute of an instance appropriately
 
         Args:
             args: this is a an argument that depicts that an unknown amount
                   of data will be passed as argument
+            kwargs: a variable amount of named arguments can also be passed
+
+        Note:
+            if args exists and it is not empty, then kwargs should be ignored
 
         Returns:
             NIL
         """
 
         args_len = len(args)
-        if args_len == 1:
-            self.id = args[0]
-        elif args_len > 1 and args_len <= 5:
-            for i in range(args_len):
-                if i == 0:
-                    self.id = args[i]
-                elif i == 1:
-                    self.width = args[i]
-                elif i == 2:
-                    self.height = args[i]
-                elif i == 3:
-                    self.x = args[i]
-                elif i == 4:
-                    self.y = args[i]
+        if args and args_len > 0:
+            if args_len == 1:
+                self.id = args[0]
+            elif args_len > 1 and args_len <= 5:
+                for i in range(args_len):
+                    if i == 0:
+                        self.id = args[i]
+                    elif i == 1:
+                        self.width = args[i]
+                    elif i == 2:
+                        self.height = args[i]
+                    elif i == 3:
+                        self.x = args[i]
+                    elif i == 4:
+                        self.y = args[i]
+        elif kwargs:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
