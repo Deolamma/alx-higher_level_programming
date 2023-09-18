@@ -44,6 +44,10 @@ class Rectangle(Base):
         Args:
             value: this is the value to be set for the width
 
+        Raises:
+            TypeError: if value is not an int data
+            ValueError: if value is <= 0
+
         Return:
             Returns the width passed to the instance
         """
@@ -52,6 +56,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        if type(value) is bool or type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -62,6 +70,10 @@ class Rectangle(Base):
         Args:
             value: this is the value to be set for the width
 
+        Raises:
+            TypeError: if value is not an int data
+            ValueError: if value is <= 0
+
         Return:
             Returns the height passed to the instance
         """
@@ -70,6 +82,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        if type(value) is bool or type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -80,6 +96,10 @@ class Rectangle(Base):
         Args:
             value: this is the value to be set fir the x property
 
+        Raises:
+            TypeError: if value is not an int data
+            ValueError: if value is < 0
+
         Returns:
             Returns the x value set or 0
         """
@@ -88,6 +108,10 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        if type(value) is bool or type(value) is not int:
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -98,6 +122,10 @@ class Rectangle(Base):
         Args:
             value: this is the value to be set fir the x property
 
+        Raises:
+            TypeError: if value is not an int data
+            ValueError: if value is < 0
+
         Returns:
             Returns the x value set or 0
         """
@@ -106,4 +134,8 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        if type(value) is bool or type(value) is not int:
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
