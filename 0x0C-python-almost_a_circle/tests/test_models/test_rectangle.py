@@ -187,3 +187,7 @@ class TestRectangleClass(TestBaseClass):
             self.obj = Rectangle(30, 14, 30, 1e308)
         with self.assertRaises(TypeError):
             self.obj = Rectangle(4, 15, 40, 4.0)
+
+    def test_area_of_rectangle(self):
+        self.obj = Rectangle(2, 3)
+        self.assertEqual(self.obj.area(), 6)
