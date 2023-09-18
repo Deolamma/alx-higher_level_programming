@@ -162,9 +162,19 @@ class Rectangle(Base):
         """Creating a Rectangle shape
         This is a public instance method that creates a rectangle shape
         This method creates the shape using the height and width specified
+
+        Note:
+            it prints spaces equivalent to the number specified for
+            x(x-axis) and y(y-axis) data
+            For instance: Rectangle(2, 3, 2, 2): will print:
+                          "\n\n ##\n ##\n ##\n"
         """
 
         create_rec = ""
+        for _ in range(self.__y):
+            print()
         for _ in range(self.__height):
-            create_rec += (("#" * self.__width) + "\n")
+            create_rec += (
+                    ("{}".format(" " * self.__x if self.__x != 0 else "")) +
+                    ("#" * self.__width) + "\n")
         print(create_rec[:-1])
