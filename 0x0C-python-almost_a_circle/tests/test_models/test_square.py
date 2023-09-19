@@ -232,3 +232,50 @@ class TestSquareClass(TestRectangleClass):
         with patch("sys.stdout", StringIO()) as disp_out:
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
+
+    def test_update(self):
+        """
+        Test updated attributes
+        """
+
+        self.obj = Square(5)
+        result = "[Square] (1) 0/0 - 5\n"
+
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
+
+        self.obj.update(10)
+        result = "[Square] (10) 0/0 - 5\n"
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
+
+        self.obj.update(1, 2, 3, 4)
+        result = "[Square] (1) 3/4 - 2\n"
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
+
+    def test_update2(self):
+        """
+        Test updated attributes kwargs
+        """
+
+        self.obj = Square(1, 2, 3, 4)
+        result = "[Square] (4) 2/3 - 1\n"
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
+
+        self.obj.update(x=12)
+        result = "[Square] (4) 12/3 - 1\n"
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
+
+        self.obj.update(size=7, id=89, y=1)
+        result = "[Square] (89) 12/1 - 7\n"
+        with patch("sys.stdout", StringIO()) as upd_out:
+            print(self.obj)
+            self.assertEqual(upd_out.getvalue(), result)
