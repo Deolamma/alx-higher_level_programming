@@ -38,7 +38,7 @@ class Square(Rectangle):
             returns the string rep. of an instance
         """
 
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
     @property
     def size(self):
@@ -55,3 +55,36 @@ class Square(Rectangle):
     def size(self, value):
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """Updating attributes of Square
+
+        Note:
+            if args exist kwargs should be ignored
+
+        Args:
+            *args: depicts variable length of positional argument
+            **kwargs: depicts variable of length of named argument
+
+        Return:
+            NIL
+        """
+
+        args_len = len(args)
+
+        if args and args_len != 0:
+            if args_len == 1:
+                self.id = args[0]
+            elif args_len <= 4:
+                for i in range(args_len):
+                    if i == 0:
+                        setattr(self, "id", args[i])
+                    if i == 1:
+                        setattr(self, "size", args[i])
+                    if i == 2:
+                        setattr(self, "x", args[i])
+                    if i == 3:
+                        setattr(self, "y", args[i])
+        elif kwargs:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
