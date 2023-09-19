@@ -61,7 +61,7 @@ class Base:
 
         Args:
             list_objs: this is a list of class objects that inherits from base
-                       directly or indirectly. 
+                       directly or indirectly.
                        For instance: instances of Square or Rectangle class
 
         Return:
@@ -74,7 +74,7 @@ class Base:
             dictionary = [
                             objs.to_dictionary()
                             for objs in list_objs
-                         ] 
+                         ]
             json_str = cls.to_json_string(dictionary)
 
         filename = "{}.json".format(cls.__name__)
