@@ -388,3 +388,20 @@ class TestRectangleClass(TestBaseClass):
         with patch("sys.stdout", StringIO()) as upd_out:
             print(self.obj)
             self.assertEqual(upd_out.getvalue(), result)
+
+    def test_to_dictionary(self):
+        """Testing the conversion of attributes"""
+
+        self.obj = Rectangle(10, 2, 1, 9)
+        result = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(self.obj.to_dictionary(), result)
+
+    def test_to_dictionary_2(self):
+        """Update values and tests"""
+        self.obj = Rectangle(10, 2, 1, 9)
+        result = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(self.obj.to_dictionary(), result)
+
+        self.obj.update(2, 4, 5)
+        result = {'x': 1, 'y': 9, 'id': 2, 'height': 5, 'width': 4}
+        self.assertEqual(self.obj.to_dictionary(), result)

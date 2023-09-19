@@ -70,7 +70,7 @@ class TestSquareClass(TestRectangleClass):
         self.assertEqual(self.obj.y, 4)
         self.assertEqual(self.obj.id, 3)
 
-    def test_valid_attr(self):
+    def test_valid_square_attr(self):
         """Testing valid attribute passed"""
         with self.assertRaises(TypeError):
             self.obj = Square("5")
@@ -79,7 +79,7 @@ class TestSquareClass(TestRectangleClass):
         with self.assertRaises(TypeError):
             self.obj = Square(False)
 
-    def test_valid_attr_1(self):
+    def test_valid_square_attr_1(self):
         """Testing valid attribute passed"""
         with self.assertRaises(ValueError):
             self.obj = Square(0)
@@ -110,7 +110,7 @@ class TestSquareClass(TestRectangleClass):
         with self.assertRaises(TypeError):
             self.new_obj = Square(1, 2, 3, 4, 5)
 
-    def test_accessing_private_attributes(self):
+    def test_accessing_square_private_attributes(self):
         """
         Encapsulation tests
         """
@@ -119,7 +119,7 @@ class TestSquareClass(TestRectangleClass):
         with self.assertRaises(AttributeError):
             self.new_obj.__width
 
-    def test_accessing_private_attributes_1(self):
+    def test_accessing_square_private_attributes_1(self):
         """
         Encapsulation tests
         """
@@ -128,7 +128,7 @@ class TestSquareClass(TestRectangleClass):
         with self.assertRaises(AttributeError):
             self.new_obj.__height
 
-    def test_accessing_private_attributes_2(self):
+    def test_accessing_square_private_attributes_2(self):
         """
         Encapsulation tests
         """
@@ -137,7 +137,7 @@ class TestSquareClass(TestRectangleClass):
         with self.assertRaises(AttributeError):
             self.new_obj.__x
 
-    def test_accessing_private_attributes_3(self):
+    def test_accessing_square_private_attributes_3(self):
         """
         Encapsulation tests
         """
@@ -146,8 +146,8 @@ class TestSquareClass(TestRectangleClass):
         with self.assertRaises(AttributeError):
             self.new_obj.__y
 
-    def test_str(self):
-        """Testing __str__method of Square"""
+    def test_square_str(self):
+        """Testing __square_str__method of Square"""
 
         self.obj = Square(5)
         result = "[Square] (1) 0/0 - 5\n"
@@ -156,7 +156,7 @@ class TestSquareClass(TestRectangleClass):
             print(self.obj)
             self.assertEqual(str_out.getvalue(), result)
 
-    def test_str1(self):
+    def test_square_str1(self):
         """
         Testing that proper id is printed out if nothing is passed for id, x, y
         """
@@ -168,7 +168,7 @@ class TestSquareClass(TestRectangleClass):
             print(self.obj)
             self.assertEqual(str_out.getvalue(), result)
 
-    def test_str2(self):
+    def test_square_str2(self):
         """
         Testing that proper str rep. is printed out when width is changed
         """
@@ -201,7 +201,7 @@ class TestSquareClass(TestRectangleClass):
         self.obj.size = 2
         self.assertEqual(self.obj.area(), 4)
 
-    def test_diplay(self):
+    def test_square_display(self):
         """Testing that display prints a proper square"""
 
         self.obj = Square(2)
@@ -218,7 +218,7 @@ class TestSquareClass(TestRectangleClass):
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
 
-    def test_display2(self):
+    def test_square_display2(self):
         """Recreate square after changing height"""
 
         self.obj = Square(2, 3, 1, 0)
@@ -233,7 +233,7 @@ class TestSquareClass(TestRectangleClass):
             self.obj.display()
             self.assertEqual(disp_out.getvalue(), result)
 
-    def test_update(self):
+    def test_square_update(self):
         """
         Test updated attributes
         """
@@ -257,7 +257,7 @@ class TestSquareClass(TestRectangleClass):
             print(self.obj)
             self.assertEqual(upd_out.getvalue(), result)
 
-    def test_update2(self):
+    def test_square_update2(self):
         """
         Test updated attributes kwargs
         """
@@ -279,3 +279,20 @@ class TestSquareClass(TestRectangleClass):
         with patch("sys.stdout", StringIO()) as upd_out:
             print(self.obj)
             self.assertEqual(upd_out.getvalue(), result)
+
+    def test_square_to_dictionary(self):
+        """Testing the conversion of attributes"""
+
+        self.obj = Square(10, 2, 1, 9)
+        result = {'x': 2, 'y': 1, 'id': 9, 'size': 10}
+        self.assertEqual(self.obj.to_dictionary(), result)
+
+    def test_square_to_dictionary_2(self):
+        """Update values and tests"""
+        self.obj = Square(10, 2, 1, 9)
+        result = {'x': 2, 'y': 1, 'id': 9, 'size': 10}
+        self.assertEqual(self.obj.to_dictionary(), result)
+
+        self.obj.update(2, 4, 5)
+        result = {'x': 5, 'y': 1, 'id': 2, 'size': 4}
+        self.assertEqual(self.obj.to_dictionary(), result)
