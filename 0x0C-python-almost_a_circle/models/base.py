@@ -3,6 +3,7 @@
 This is the Base class for the Models Package
 It's core functionality is to handle ID generation if it's not provided
 """
+import json
 
 
 class Base:
@@ -33,3 +34,17 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Converting python object to JSON rep
+
+        Args:
+            list_dictionaries: this is the list of dictionaries to be converted
+                               to JSON rep.
+
+        Return:
+            returns the JSON str. rep of a list of dictionaries
+        """
+
+        return json.dumps(list_dictionaries)
