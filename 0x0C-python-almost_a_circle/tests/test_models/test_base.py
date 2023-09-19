@@ -3,7 +3,10 @@
 unittest file for Base(id)
 """
 import unittest
+from unittest.mock import patch
+from io import StringIO
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 def setUpModule():
