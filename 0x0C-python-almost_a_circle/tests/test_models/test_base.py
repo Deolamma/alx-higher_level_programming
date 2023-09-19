@@ -7,6 +7,7 @@ from unittest.mock import patch
 from io import StringIO
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
 
 
 def setUpModule():
@@ -101,3 +102,51 @@ class TestBaseClass(unittest.TestCase):
         with patch("sys.stdout", StringIO()) as json_out:
             print(json_dict)
             self.assertEqual(json_out.getvalue(), json_dict_result)
+
+    def test_save_to_file_square(self):
+        """Testing json str rep. saved to file"""
+        Square.save_to_file(None)
+
+        with open("Square.json", "r", encoding="utf-8") as open_file:
+                self.assertEqual(open_file.read(), "[]")
+
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+
+    def test_save_to_file_square_2(self):
+        """Testing json str rep. saved to file"""
+        Square.save_to_file([])
+
+        with open("Square.json", "r", encoding="utf-8") as open_file:
+                self.assertEqual(open_file.read(), "[]")
+
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+
+    def test_save_to_file_rectangle(self):
+        """Testing json str rep. saved to file"""
+        Rectangle.save_to_file([])
+
+        with open("Rectangle.json", "r", encoding="utf-8") as open_file:
+                self.assertEqual(open_file.read(), "[]")
+
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+
+    def test_save_to_file_rectangle_2(self):
+        """Testing json str rep. saved to file"""
+        Rectangle.save_to_file([])
+
+        with open("Rectangle.json", "r", encoding="utf-8") as open_file:
+                self.assertEqual(open_file.read(), "[]")
+
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
