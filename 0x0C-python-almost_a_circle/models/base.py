@@ -47,4 +47,6 @@ class Base:
             returns the JSON str. rep of a list of dictionaries
         """
 
+        if list_dictionaries is None:
+            return []
         return json.dumps(list_dictionaries)
