@@ -50,3 +50,33 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return json.dumps([])
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Saving a JSON string representation to a file
+        This class makes use of the to_json_string method to convert
+        the list objects to a JSON string representation.
+
+        It saves the JSON string rep. to a .json file
+
+        Args:
+            list_objs: this is a list of class objects that inherits from base
+                       directly or indirectly. 
+                       For instance: instances of Square or Rectangle class
+
+        Return:
+            NIL
+        """
+
+        if list_objs is None or len(list_objs) == 0:
+            json_str = cls.to_json_string([])
+        else:
+            dictionary = [
+                            objs.to_dictionary()
+                            for objs in list_objs
+                         ] 
+            json_str = cls.to_json_string(dictionary)
+
+        filename = "{}.json".format(cls.__name__)
+        with open(filename, "w", encoding="utf-8") as open_file:
+            open_file.write(json_str)
