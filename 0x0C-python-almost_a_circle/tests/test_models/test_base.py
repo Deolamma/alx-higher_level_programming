@@ -108,11 +108,11 @@ class TestBaseClass(unittest.TestCase):
         Square.save_to_file(None)
 
         with open("Square.json", "r", encoding="utf-8") as open_file:
-                self.assertEqual(open_file.read(), "[]")
+            self.assertEqual(open_file.read(), "[]")
 
         try:
             os.remove("Square.json")
-        except:
+        except FileNotFoundError:
             pass
 
     def test_save_to_file_square_2(self):
@@ -120,11 +120,11 @@ class TestBaseClass(unittest.TestCase):
         Square.save_to_file([])
 
         with open("Square.json", "r", encoding="utf-8") as open_file:
-                self.assertEqual(open_file.read(), "[]")
+            self.assertEqual(open_file.read(), "[]")
 
         try:
             os.remove("Square.json")
-        except:
+        except FileNotFoundError:
             pass
 
     def test_save_to_file_rectangle(self):
@@ -132,11 +132,11 @@ class TestBaseClass(unittest.TestCase):
         Rectangle.save_to_file([])
 
         with open("Rectangle.json", "r", encoding="utf-8") as open_file:
-                self.assertEqual(open_file.read(), "[]")
+            self.assertEqual(open_file.read(), "[]")
 
         try:
             os.remove("Rectangle.json")
-        except:
+        except FileNotFoundError:
             pass
 
     def test_save_to_file_rectangle_2(self):
@@ -144,9 +144,9 @@ class TestBaseClass(unittest.TestCase):
         Rectangle.save_to_file([])
 
         with open("Rectangle.json", "r", encoding="utf-8") as open_file:
-                self.assertEqual(open_file.read(), "[]")
+            self.assertEqual(open_file.read(), "[]")
 
         try:
             os.remove("Rectangle.json")
-        except:
+        except FileNotFoundError:
             pass
