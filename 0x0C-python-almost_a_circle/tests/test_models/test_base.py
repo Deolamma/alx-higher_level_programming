@@ -83,3 +83,12 @@ class TestBaseClass(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             self.obj = Base(10, 30)
+
+    def test_to_json_string(self):
+        """Testing conversion to JSON str. rep."""
+        json_dict = Base.to_json_string(None)
+        json_dict_result = "[]\n"
+
+        with patch("sys.stdout", StringIO()) as json_out:
+            print(json_dict)
+            self.assertEqual(json_out.getvalue(), json_dict_result)
