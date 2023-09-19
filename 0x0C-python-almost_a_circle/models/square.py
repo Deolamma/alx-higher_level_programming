@@ -88,3 +88,11 @@ class Square(Rectangle):
         elif kwargs:
             for k, v in kwargs.items():
                 setattr(self, k, v)
+
+    def to_dictionary(self):
+        """Dictionary rep. of attributes
+        Return:
+            returns dictionary rep. of attr. of innstances of rectangle class
+        """
+
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
