@@ -151,3 +151,19 @@ class TestBaseClass(unittest.TestCase):
             os.remove("Rectangle.json")
         except FileNotFoundError:
             pass
+
+    def test_from_json_string_square(self):
+        """Testing conversion of json string to Python object"""
+        obj_out = Square.from_json_string(None)
+        self.assertListEqual(obj_out, [])
+
+        obj_out = Square.from_json_string([])
+        self.assertListEqual(obj_out, [])
+
+    def test_from_json_string_rectangle(self):
+        """Testing conversion of json string to Pyton object"""
+        obj_out = Rectangle.from_json_string(None)
+        self.assertListEqual(obj_out, [])
+
+        obj_out = Rectangle.from_json_string([])
+        self.assertListEqual(obj_out, [])
