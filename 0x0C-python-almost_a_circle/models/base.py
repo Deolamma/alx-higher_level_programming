@@ -87,7 +87,7 @@ class Base:
         Converts from a JSON string to a to a Python object
 
         Args:
-            json_string: This is the JSON string rep. to be converted to 
+            json_string: This is the JSON string rep. to be converted to
                          a Python object
 
         Return:
