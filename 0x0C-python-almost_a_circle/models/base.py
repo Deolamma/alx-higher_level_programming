@@ -80,3 +80,21 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         with open(filename, "w", encoding="utf-8") as open_file:
             open_file.write(json_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """From JSON to String
+        Converts from a JSON string to a to a Python object
+
+        Args:
+            json_string: This is the JSON string rep. to be converted to 
+                         a Python object
+
+        Return:
+            Returns an empty list if json_string is None or empty,
+            Returns a Python obj. of the json_string rep.
+        """
+
+        if json_string is None or len(json_string) == 0:
+            return json.loads("[]")
+        return json.loads(json_string)
