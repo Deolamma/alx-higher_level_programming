@@ -117,6 +117,6 @@ class Base:
             if cls.__name__ == "Square":
                 dummy_inst = cls(2)
             else:
-                dummy_inst = cls(2)
+                dummy_inst = cls(2, 2)
         dummy_inst.update(**dictionary)
         return dummy_inst
