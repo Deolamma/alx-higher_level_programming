@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 exports.esrever = function (list) {
-  let newList = [];
+  const newList = [];
   // check if list length is greater than zero
   if (list && (list.length > 0)) {
     // newListIndexNum helps us avoid overflow when reordering list
