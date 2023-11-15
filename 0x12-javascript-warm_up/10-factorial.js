@@ -2,7 +2,7 @@
 
 function factorial (number) {
   // If number argument is NaN
-  if (Number.isNaN(number)) {
+  if (!(parseInt(number))) {
     return 1;
   }
   if (number === 1) {
